@@ -7,7 +7,7 @@
 
     angular.module('app').config(['AnalyticsProvider', function (AnalyticsProvider) {
         // Add configuration code as desired
-        AnalyticsProvider.setAccount('UA-101388661-2');  //UU-XXXXXXX-X should be your tracking code
+        AnalyticsProvider.setAccount('UA-133419070-2');  //UU-XXXXXXX-X should be your tracking code
     }]).run(['Analytics', function(Analytics) { }]);
 
     function appConfig() {
@@ -29,10 +29,10 @@
         var date = new Date();
         var year = date.getFullYear();
         var main = {
-            brand: 'Bitshares Explorer',
+            brand: 'Localcoin Explorer',
             name: 'oxarbitrage',
-            api_link: 'https://github.com/oxarbitrage/bitshares-python-api-backend',
-            source_code_link: 'https://github.com/oxarbitrage/open-explorer',
+            api_link: 'https://github.com/LocalCoinIS/localcoin-explorer-api.git',
+            source_code_link: 'https://github.com/LocalCoinIS/open-explorer.git',
             year: year,
             pageTransition: pageTransitionOpts[0]
         };

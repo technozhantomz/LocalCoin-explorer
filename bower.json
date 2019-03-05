@@ -1,8 +1,8 @@
 {
-  "name": "bitshares-explorer",
-  "description": "An Open source Bitshares Network Explorer",
+  "name": "localcoin-explorer",
+  "description": "An Open source Localcoin Network Explorer",
   "version": "0.1",
-  "homepage": "https://github.com/oxarbitrage/bitshares-explorer",
+  "homepage": "https://github.com/LocalCoinIS/open-explorer.git",
   "license": "MIT",
   "private": true,
   "dependencies": {
