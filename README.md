@@ -1,6 +1,6 @@
-# Open Source Bitshares Explorer
+# Open Source LocalCoin Explorer
 
-http://open-explorer.io
+http://LLC.is
 
 ## Install
 
@@ -51,7 +51,7 @@ Create distribution version and move everything to http server:
 
 ```
 grunt serve:dist
-cp -rf dist/* /var/www/open-explorer.io/public_html/
+cp -rf dist/* /var/www/llc.is/public_html/
 ```
 
-Point your browser to domain: http://open-explorer.io
+Point your browser to domain: http://LLC.is

@@ -32,7 +32,7 @@
             brand: 'Localcoin Explorer',
             name: 'oxarbitrage',
             api_link: 'https://github.com/LocalCoinIS/localcoin-explorer-api.git',
-            source_code_link: 'https://github.com/LocalCoinIS/open-explorer.git',
+            source_code_link: 'https://github.com/LocalCoinIS/LocalCoin-explorer.git',
             year: year,
             pageTransition: pageTransitionOpts[0]
         };

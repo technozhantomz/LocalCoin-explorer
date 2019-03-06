@@ -2,7 +2,7 @@
   "name": "localcoin-explorer",
   "description": "An Open source Localcoin Network Explorer",
   "version": "0.1",
-  "homepage": "https://github.com/LocalCoinIS/open-explorer.git",
+  "homepage": "https://github.com/LocalCoinIS/LocalCoin-explorer.git",
   "license": "MIT",
   "private": true,
   "dependencies": {
