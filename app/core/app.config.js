@@ -30,7 +30,7 @@
         var year = date.getFullYear();
         var main = {
             brand: 'Localcoin Explorer',
-            name: 'oxarbitrage',
+            name: 'LocalCoinIS',
             api_link: 'https://github.com/LocalCoinIS/localcoin-explorer-api.git',
             source_code_link: 'https://github.com/LocalCoinIS/LocalCoin-explorer.git',
             year: year,
