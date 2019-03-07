@@ -16,7 +16,7 @@
                         dex_volume_chart.options = {
                             animation: true,
                             title: {
-                                text: 'Daily DEX Volume in BTS for the last 30 days'
+                                text: 'Daily DEX Volume in LLC for the last 30 days'
                             },
                             tooltip: {
                                 trigger: 'axis'

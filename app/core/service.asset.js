@@ -23,7 +23,7 @@
                             supply = "-";
                         }
                         else {
-                            market_cap = Math.round(value[5] / 100000); // in bts always by now
+                            market_cap = Math.round(value[5] / 100000); // in llc always by now
                             var precision = 100000;
                             if (value[10]) {
                                 precision = Math.pow(10, value[10]);
@@ -90,7 +90,7 @@
                         description = description_p[3];
                         type = "User Issued";
                     }
-                    if (response.data[0].symbol === "BTS") {
+                    if (response.data[0].symbol === "LLC") {
                         type = "Core Token";
                     }
 

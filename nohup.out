@@ -1,0 +1,41 @@
+Running "serve" task
+(node:9931) ExperimentalWarning: The http2 module is an experimental API.
+
+Running "clean:server" (clean) task
+>> 1 path cleaned.
+
+Running "concurrent:server" (concurrent) task
+
+    [4mRunning "copy:styles" (copy) task[24m
+
+
+    [32mDone.[39m
+
+
+    [4mExecution Time[24m[90m (2019-03-06 18:02:59 UTC)[39m
+    loading tasks  [34m2ms[39m  [34m▇▇▇▇▇▇▇▇▇ 18%[39m
+    copy:styles    [34m9ms[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 82%[39m
+    [35mTotal 11ms[39m(node:9946) ExperimentalWarning: The http2 module is an experimental API.
+
+    [4mRunning "compass:server" (compass) task[24m
+    [32mdirectory[0m .tmp/styles/custom
+    [32m    write[0m .tmp/styles/custom/custom.css (0.019s)
+    [32m    write[0m .tmp/styles/custom/custom.css.map
+
+    [32mDone.[39m
+
+
+    [4mExecution Time[24m[90m (2019-03-06 18:02:59 UTC)[39m
+    compass:server  [34m516ms[39m  [34m▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 99%[39m
+    [35mTotal 520ms[39m(node:9941) ExperimentalWarning: The http2 module is an experimental API.
+
+Running "connect:livereload" (connect) task
+Started connect web server on http://localhost:8900
+
+Running "open:server" (open) task
+Warning: Command failed: /var/www/llc.is/node_modules/open/vendor/xdg-open "http://localhost:8900"
+xdg-open: no method available for opening 'http://localhost:8900'
+ Used --force, continuing.
+
+Running "watch" task
+Waiting...
