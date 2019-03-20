@@ -29,13 +29,13 @@
         $scope.select(1);
 
 		chartService.topOperationsChart(function (returnData) {
-            $scope.operations_chart = returnData;
+                $scope.operations_chart = returnData;
         });
 
         chartService.topProxiesChart(function (returnData) {
             $scope.proxies = returnData;
         });
-
+        
         chartService.topMarketsChart(function (returnData) {
             $scope.markets = returnData;
         });

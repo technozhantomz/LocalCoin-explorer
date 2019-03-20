@@ -290,7 +290,8 @@
                     angular.forEach(response.data, function (value, key) {
                         var timestamp;
                         var witness;
-                        var op = utilities.operationType(value.op_type);
+                        //var op = utilities.operationType(value.op_type);
+                        var op = utilities.operationType(value.op[0]);
                         var op_type = op[0];
                         var op_color = op[1];
                         var time = new Date(value.timestamp);
@@ -305,7 +306,8 @@
                             op_color: op_color
                         };
                         var operation_text = "";
-                        operation_text = utilities.opText(appConfig, $http, value.op_type,value.op, function(returnData) {
+                        //operation_text = utilities.opText(appConfig, $http, value.op_type,value.op, function(returnData) {
+                            operation_text = utilities.opText(appConfig, $http, value.op[0],value.op[1], function(returnData) {
                             operation.operation_text = returnData;
                         });
                         results.push(operation);

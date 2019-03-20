@@ -34,8 +34,8 @@
                     var from = operation.from;
                     var to = operation.to;
 
-                    var amount_asset_id = operation.amount_.asset_id;
-                    var amount_amount = operation.amount_.amount;
+                    var amount_asset_id = operation.amount.asset_id;
+                    var amount_amount = operation.amount.amount;
 
                     operation_account = from;
 
@@ -559,11 +559,11 @@
                     color = "1D04BB";
                 }
                 else if(opType === 47) {
-                    name = "ASSET CLAIM POOL";
+                    name = "ACTIVENODE CREATE";
                     color = "AAF654";
                 }
                 else if(opType === 48) {
-                    name = "ASSET UPDATE ISSUER";
+                    name = "ACTIVENODE SEND ACTIVITY";
                     color = "AB7781";
                 }
 
@@ -609,6 +609,8 @@
                     object_type = "WORKER";
                 else if (parts[0] == "1" && parts[1] == "15")
                     object_type = "BALANCE";
+                else if (parts[0] == "1" && parts[1] == "16")
+                    object_type = "ACTIVENODE";                    
                 else if (parts[0] == "2" && parts[1] == "0")
                     object_type = "GLOBAL PROPERTY";
                 else if (parts[0] == "2" && parts[1] == "1")

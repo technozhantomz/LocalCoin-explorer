@@ -55,10 +55,11 @@
                         operation.operation_id = value.account_history.operation_id;
                         operation.time = value.block_data.block_time;
 
-                        //var parsed_op = JSON.parse(value.operation_history.op);
-                        var parsed_op = value.operation_history.op_object;
+                        var parsed_op = JSON.parse(value.operation_history.op);
+                        //var parsed_op = value.operation_history.op_object;
 
-                        utilities.opText(appConfig, $http, value.operation_type, parsed_op, function(returnData) {
+                        //utilities.opText(appConfig, $http, value.operation_type, parsed_op, function(returnData) {
+                            utilities.opText(appConfig, $http, value.operation_type, parsed_op[1], function(returnData) {
                             operation.operation_text = returnData;
                         });
 
@@ -110,10 +111,13 @@
                 var data;
                 $http.get(appConfig.urls.elasticsearch_wrapper + "/get_trx?trx=" + trx + "&size=100&sort=-operation_history.sequence")
                     .then(function(response) {
+                    
+                    //console.log(response);
 
                     var operations = [];
                     angular.forEach(response.data, function (value, key) {
                         var op = utilities.operationType(value.operation_type);
+                        
                         var op_type = op[0];
                         var op_color = op[1];
 
@@ -123,11 +127,14 @@
                             op_type: op_type
                         };
 
-                        var opArray = value.operation_history.op_object;
-                        utilities.opText(appConfig, $http, value.operation_type, opArray, function (returnData) {
+                        //var opArray = value.operation_history.op_object;
+                        //utilities.opText(appConfig, $http, value.operation_type, opArray, function (returnData) {
+                        var opArray = JSON.parse(value.operation_history.op);
+                        utilities.opText(appConfig, $http, opArray[0], opArray[1], function (returnData) {
                             parsed.operation_text = returnData;
                         });
                         operations.push(parsed);
+                        
                     });
                     callback(operations);
                 });
@@ -163,10 +170,10 @@
             getOperation: function(operation, callback) {
                 var op;
                 $http.get(appConfig.urls.python_backend + "/operation_full_elastic?operation_id=" + operation).then(function(response) {
-                    var raw_obj = response.data[0].op;
-                    var op_type =  utilities.operationType(response.data[0].op_type);
+                    var raw_obj = response.data[0].op[1];
+                    var op_type =  utilities.operationType(response.data[0].op[0]);
 
-                    utilities.opText(appConfig, $http, response.data[0].op_type, raw_obj, function(returnData) {
+                    utilities.opText(appConfig, $http, response.data[0].op[0], raw_obj, function(returnData) {
                         op = {
                             name: operation,
                             block_num: response.data[0].block_num,

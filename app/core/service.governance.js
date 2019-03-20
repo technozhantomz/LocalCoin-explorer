@@ -185,8 +185,8 @@
                     angular.forEach(response2.data, function (value, key) {
                         var parsed = {
                             id: value[1],
-                            witness_account_name: value[0],
-                            proxy1: value[2].split(":")[1],
+                            witness_account_name: value[0]//, TODO: uncomment when proxies will back
+                    /*        proxy1: value[2].split(":")[1],
                             proxy2: value[3].split(":")[1],
                             proxy3: value[4].split(":")[1],
                             proxy4: value[5].split(":")[1],
@@ -205,7 +205,7 @@
                             tclass7: ((value[8].split(":")[1] === "Y") ? "success" : "danger"),
                             tclass8: ((value[9].split(":")[1] === "Y") ? "success" : "danger"),
                             tclass9: ((value[10].split(":")[1] === "Y") ? "success" : "danger"),
-                            tclass10: ((value[11].split(":")[1] === "Y") ? "success" : "danger")
+                            tclass10: ((value[11].split(":")[1] === "Y") ? "success" : "danger")*/
                         };
                         witnesses.push(parsed);
                     });
@@ -219,8 +219,8 @@
                         var parsed = {
                             id: value[1],
                             worker_account_name: value[0],
-                            worker_name: value[2],
-                            proxy1: value[3].split(":")[1],
+                            worker_name: value[2]//, TODO: uncomment when proxies will back
+                           /* proxy1: value[3].split(":")[1],
                             proxy2: value[4].split(":")[1],
                             proxy3: value[5].split(":")[1],
                             proxy4: value[6].split(":")[1],
@@ -239,7 +239,7 @@
                             tclass7: ((value[9].split(":")[1] === "Y") ? "success" : "danger"),
                             tclass8: ((value[10].split(":")[1] === "Y") ? "success" : "danger"),
                             tclass9: ((value[11].split(":")[1] === "Y") ? "success" : "danger"),
-                            tclass10: ((value[12].split(":")[1] === "Y") ? "success" : "danger")
+                            tclass10: ((value[12].split(":")[1] === "Y") ? "success" : "danger")*/
                         };
                         workers.push(parsed);
                     });
@@ -252,8 +252,8 @@
                     angular.forEach(response.data, function (value, key) {
                         var parsed = {
                             id: value[1],
-                            committee_account_name: value[0],
-                            proxy1: value[1].split(":")[1],
+                            committee_account_name: value[0]//, TODO: uncomment when proxies will back
+                            /*proxy1: value[1].split(":")[1],
                             proxy2: value[2].split(":")[1],
                             proxy3: value[3].split(":")[1],
                             proxy4: value[4].split(":")[1],
@@ -272,7 +272,7 @@
                             tclass7: ((value[7].split(":")[1] === "Y") ? "success" : "danger"),
                             tclass8: ((value[8].split(":")[1] === "Y") ? "success" : "danger"),
                             tclass9: ((value[9].split(":")[1] === "Y") ? "success" : "danger"),
-                            tclass10: ((value[10].split(":")[1] === "Y") ? "success" : "danger")
+                            tclass10: ((value[10].split(":")[1] === "Y") ? "success" : "danger")*/
                         };
                         committee.push(parsed);
                     });

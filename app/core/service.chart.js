@@ -170,14 +170,14 @@
                         legend: {
                             orient: 'vertical',
                             x: 'left',
-                            data: [
-                                response.data[0][1],
+                            data: [/*
+                                response.data[0][1], TODO: Recover this when proxies will be full
                                 response.data[1][1],
                                 response.data[2][1],
                                 response.data[3][1],
                                 response.data[4][1],
                                 response.data[5][1],
-                                response.data[6][1]
+                                response.data[6][1]*/
                             ]
                         },
                         toolbox: {
@@ -212,14 +212,14 @@
                                     }
                                 }
                             },
-                            data: [
-                                {value: response.data[0][2], name: response.data[0][1]},
+                            data: [/*
+                                {value: response.data[0][2], name: response.data[0][1]}, TODO: Recover this when proxies will be full
                                 {value: response.data[1][2], name: response.data[1][1]},
                                 {value: response.data[2][2], name: response.data[2][1]},
                                 {value: response.data[3][2], name: response.data[3][1]},
                                 {value: response.data[4][2], name: response.data[4][1]},
                                 {value: response.data[5][2], name: response.data[5][1]},
-                                {value: response.data[6][2], name: response.data[6][1]}
+                                {value: response.data[6][2], name: response.data[6][1]}*/
                             ]
                         }]
                     };
@@ -228,71 +228,72 @@
             },
             topMarketsChart: function(callback) {
                 $http.get(appConfig.urls.python_backend + "/top_markets").then(function(response) {
-
-                    var markets_chart = {};
-                    markets_chart.options = {
-                        animation: true,
-                        tooltip: {
-                            trigger: 'item',
-                            formatter: "{a} <br/>{b} : {c} ({d}%)"
-                        },
-                        legend: {
-                            orient: 'vertical',
-                            x: 'left',
-                            data: [
-                                response.data[0][0],
-                                response.data[1][0],
-                                response.data[2][0],
-                                response.data[3][0],
-                                response.data[4][0],
-                                response.data[5][0],
-                                response.data[6][0]
-                            ]
-                        },
-                        toolbox: {
-                            show: true,
-                            feature: {
-                                saveAsImage: {show: true, title: "save as image"}
-                            }
-                        },
-                        calculable: true,
-                        series: [{
-                            color: ['#81CA80','#6BBCD7', '#E9C842', '#E96562', '#008000', '#FB8817', '#552AFF'],
-                            name: 'Traffic source',
-                            type: 'pie',
-                            radius: ['50%', '70%'],
-                            itemStyle: {
-                                normal: {
-                                    label: {
-                                        show: false
-                                    },
-                                    labelLine: {
-                                        show: false
-                                    }
-                                },
-                                emphasis: {
-                                    label: {
-                                        show: true,
-                                        position: 'center',
-                                        textStyle: {
-                                            fontSize: '30',
-                                            fontWeight: 'bold'
-                                        }
-                                    }
+                    if(response.data.length != 0){
+                        var markets_chart = {};
+                        markets_chart.options = {
+                            animation: true,
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                x: 'left',
+                                data: [
+                                    response.data[0][0],
+                                    response.data[1][0],
+                                    response.data[2][0],
+                                    response.data[3][0],//, TODO: Recover this when markets will be full
+                                    response.data[4][0],
+                                    response.data[5][0],
+                                    response.data[6][0]
+                                ]
+                            },
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    saveAsImage: {show: true, title: "save as image"}
                                 }
                             },
-                            data: [
-                                {value: response.data[0][1], name: response.data[0][0]},
-                                {value: response.data[1][1], name: response.data[1][0]},
-                                {value: response.data[2][1], name: response.data[2][0]},
-                                {value: response.data[3][1], name: response.data[3][0]},
-                                {value: response.data[4][1], name: response.data[4][0]},
-                                {value: response.data[5][1], name: response.data[5][0]},
-                                {value: response.data[6][1], name: response.data[6][0]}
-                            ]
-                        }]
+                            calculable: true,
+                            series: [{
+                                color: ['#81CA80','#6BBCD7', '#E9C842', '#E96562', '#008000', '#FB8817', '#552AFF'],
+                                name: 'Traffic source',
+                                type: 'pie',
+                                radius: ['50%', '70%'],
+                                itemStyle: {
+                                    normal: {
+                                        label: {
+                                            show: false
+                                        },
+                                        labelLine: {
+                                            show: false
+                                        }
+                                    },
+                                    emphasis: {
+                                        label: {
+                                            show: true,
+                                            position: 'center',
+                                            textStyle: {
+                                                fontSize: '30',
+                                                fontWeight: 'bold'
+                                            }
+                                        }
+                                    }
+                                },
+                                data: [
+                                    {value: response.data[0][1], name: response.data[0][0]},
+                                    {value: response.data[1][1], name: response.data[1][0]},
+                                    {value: response.data[2][1], name: response.data[2][0]},
+                                    {value: response.data[3][1], name: response.data[3][0]}, //, TODO: Recover this when markets will be full
+                                    {value: response.data[4][1], name: response.data[4][0]},
+                                    {value: response.data[5][1], name: response.data[5][0]},
+                                    {value: response.data[6][1], name: response.data[6][0]}
+                                ]
+                            }]
                     };
-                    callback(markets_chart);
+                        callback(markets_chart);
+                    }
                 });
             },
             topSmartCoinsChart: function(callback) {
