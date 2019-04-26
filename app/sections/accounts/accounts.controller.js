@@ -34,8 +34,10 @@
                     // TODO: get margin positions, call already in the api.py
 
                     var lifetime_fees_paid = fullAccount.statistics.lifetime_fees_paid;
-                    var bts_balance = fullAccount.balances[0].balance;
-
+                    if (fullAccount.balances.length != 0){
+                        var bts_balance = fullAccount.balances[0].balance;
+                    }
+                    
                     jdenticon.update("#identicon", sha256(fullAccount.account.name));
 
                     // get total ops from ES

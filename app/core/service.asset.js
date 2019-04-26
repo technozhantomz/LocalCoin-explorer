@@ -81,13 +81,14 @@
 
                     var type;
                     var description;
-                    if (response.data[0].issuer === "1.2.0") {
+                    console.log(response.data);
+                    if (response.data[0].issuer === "1.2.50") {
                         description = response.data[0].options.description;
                         type = "SmartCoin";
                     }
                     else {
-                        var description_p = response.data[0].options.description.split('"');
-                        description = description_p[3];
+                        var description = response.data[0].options.description;//.split('"');
+                        //description = description_p[3];
                         type = "User Issued";
                     }
                     if (response.data[0].symbol === "LLC") {

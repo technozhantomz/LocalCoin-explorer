@@ -110,7 +110,7 @@
                 </thead>
                 <tbody>
                 <tr data-ng-repeat="asset in assets | orderBy:column:reverse | filter:search" >
-                    <td><img ng-src="{{ asset.image_url || 'images/asset-symbols/bts.png' }}" width="30"/></td>
+                    <td><img ng-src="{{ asset.image_url || 'images/asset-symbols/llc.png' }}" width="30"/></td>
                     <td><a href='#/assets/{{asset.id}}/'>{{asset.name}}</a></td>
                     <td class="align-right">{{asset.price | number}} <a href='#/assets/1.3.0/'>LLC</a></td>
                     <td class="align-right">{{asset.volume | number}} <a href='#/assets/1.3.0/'>LLC</a></td>

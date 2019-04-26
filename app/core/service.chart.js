@@ -228,7 +228,7 @@
             },
             topMarketsChart: function(callback) {
                 $http.get(appConfig.urls.python_backend + "/top_markets").then(function(response) {
-                    if(response.data.length != 0){
+                    if(response.data.length != 6){
                         var markets_chart = {};
                         markets_chart.options = {
                             animation: true,

@@ -14,6 +14,7 @@
 
                 assetService.getAssetFull(name, function (returnData) {
                     $scope.data = returnData;
+                    //console.log($scope.data);
                     assetService.getAssetHoldersCount(name, function (returnDataHolders) {
                         $scope.data.holders = returnDataHolders;
                     });
@@ -46,7 +47,8 @@
 
                 utilities.columnsort($scope, "volume", "sortColumn", "sortClass", "reverse", "reverseclass", "column");
             }
-		}
+        }
+        
     }
 
 })();

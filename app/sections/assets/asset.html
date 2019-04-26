@@ -14,8 +14,8 @@
 
     <div class="row">
 
-        <div class="col-md-3">
-            <img alt="" src="{{data.image_url}}" class="img-circle" width="300" height="300">
+        <div class="col-md-3 img--align-middle" style="text-align: center;">
+            <img alt="" src="{{data.image_url}}" class="img-circle">
         </div>
 
         <div class="col-md-3">
@@ -54,9 +54,9 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <span class="badge" style="background-color: #FFFFFF; color: #000000;">
-                            {{ data.description | limitTo:50 }}
+                            {{ data.description | limitTo:60 }}
                                 <span ng-if="data.long_description">
-                                  <!--  ... <a target="_self" ng-click="scrollTo('fulldescription')" title="{{data.description}}" style="cursor: pointer;"> READ FULL</a> -->
+                                  ... <a target="_self" ng-click="scrollTo('fulldescription')" title="{{data.description}}" style="cursor: pointer;"> READ FULL</a> 
                                 </span>
                         </span>
                         Description
