@@ -4,7 +4,7 @@
         .config(['$translateProvider', i18nConfig])
         .controller('LangCtrl', ['$scope', '$translate', LangCtrl]);
 
-        // English, Español, 日本語, 中文, Deutsch, français, Italiano, Portugal, Русский язык, 한국어
+        // English, Español, 日本語, 中文, Deutsch, français, Italiano, Portugal, Русский, 한국어
         // Note: Used on Header, Sidebar, Footer, Dashboard
         // English:          EN-US
         // Spanish:          Español ES-ES
@@ -14,7 +14,7 @@
 
         // Not used:
         // Portugal:         Portugal PT-BR
-        // Russian:          Русский язык RU-RU
+        // Russian:          Русский RU-RU
         // German:           Deutsch DE-DE
         // Japanese:         日本語 JA-JP
         // Italian:          Italiano IT-IT
@@ -53,7 +53,7 @@
                     case 'Portugues':
                         $translate.use('pt');
                         break;
-                    case 'Русский язык':
+                    case 'Русский':
                         $translate.use('ru');
                         break;
                 }
@@ -79,7 +79,7 @@
                     case '日本語':
                         return 'flags-japan';
                         break;
-                    case 'Русский язык':
+                    case 'Русский':
                         return 'flags-russia';
                         break;
                 }
@@ -87,4 +87,4 @@
 
         }
 
-})(); 
+})();
