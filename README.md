@@ -39,18 +39,18 @@ Start by npm:
 
 Point your browser to:
 
-http://localhost:8000
+http://localhost:8900
 
 Start by grunt:
 
 `grunt serve`
 
-Point your browser to http://localhost:8000 to have a developer version with auto load of changed code.
+Point your browser to http://localhost:8900 to have a developer version with auto load of changed code.
 
 Create distribution version and move everything to http server:
 
 ```
-grunt serve:dist
+grunt serve:dist --force
 cp -rf dist/* /var/www/llc.is/public_html/
 ```
 
