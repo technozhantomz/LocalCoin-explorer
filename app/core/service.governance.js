@@ -79,6 +79,48 @@
                     callback(witnesses);
                 });
             },
+            getActivenodes: function(callback) {
+                var active_activenodes = [];
+                //var standby_activenodes = [];
+                var activenodes = [];
+
+                //networkService.getHeader(function (returnData) {
+                    //var witness_count = returnData.witness_count;
+
+                    $http.get(appConfig.urls.python_backend + "/get_activenodes").then(function(response) {
+                        var counter = 1;
+                        angular.forEach(response.data, function(value, key) {
+                            var parsed = {
+                                id: value[0].id,
+                                activenode_account: value[0].activenode_account,
+                                activenode_account_name: value[0].activenode_account_name,
+                                activities_approx_count: value[0].activities_approx_count,
+                                missed_activities: value[0].activities_aprrox_missed_activities,
+                                activities_sent: value[0].activities_sent,
+                                endpoint: value[0].endpoint,
+                                is_new: value[0].is_new,
+                                last_activity: value[0].last_activity,
+                                max_penalty: value[0].max_penalty,
+                                pay_vb: value[0].pay_vb,
+                                penalty_left: value[0].penalty_left,
+                                counter: counter
+                            };
+
+                            //if(counter <= witness_count) {
+                            //    active_witnesses.push(parsed);
+                            //}
+                            //else {
+                            //    standby_witnesses.push(parsed);
+                            //}
+                            active_activenodes.push(parsed);
+                            counter++;
+                        });
+                    });
+                    activenodes[0] = active_activenodes;
+                    //witnesses[1] = standby_witnesses;
+                    callback(activenodes);
+                //});
+            },            
             getWorkers: function(callback) {
                 $http.get(appConfig.urls.python_backend + "/get_workers").then(function(response) {
                     var workers_current = [];

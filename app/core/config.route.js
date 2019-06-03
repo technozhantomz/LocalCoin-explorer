@@ -47,7 +47,8 @@
 				.when('/accounts/:name', {templateUrl: 'sections/accounts/account.html'})
 
 				.when('/fees', {templateUrl: 'sections/fees/fees.html'})
-				.when('/witness', {templateUrl: 'sections/witnesses/witnesses.html'})
+                .when('/witness', {templateUrl: 'sections/witnesses/witnesses.html'})
+                .when('/activenodes', {templateUrl: 'sections/activenodes/activenodes.html'})
 				.when('/workers', {templateUrl: 'sections/workers/workers.html'})
 				.when('/votes', {templateUrl: 'sections/voting/voting.html'})
                 .when('/committee_members', {templateUrl: 'sections/committee_members/committee_members.html'})

@@ -29,6 +29,7 @@
         'app.txs',
         'app.voting',
         'app.witnesses',
+        'app.activenodes',
         'app.workers',
         'app.blocks',
         'app.header'

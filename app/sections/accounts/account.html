@@ -76,11 +76,11 @@
                                                     </li>
                                                     <li class="list-group-item">
                                                         <span class="badge" style="background-color: #FFFFFF; color: #000000"><a href='#/accounts/{{account.referer}}/'>{{account.referer}}</a></span>
-                                                        Referer
+                                                        Referrer
                                                     </li>
                                                     <li class="list-group-item">
                                                         <span class="badge" style="background-color: #FFFFFF; color: #000000"><a href='#/accounts/{{account.registrar}}/'>{{account.registrar}}</a></span>
-                                                        Registar
+                                                        Registrar
                                                     </li>
                                                     <li class="list-group-item">
                                                         <span class="badge" style="background-color: #FFFFFF; color: #000000"><a href='#/objects/{{account.voting_account_id}}/'>{{account.voting_account_name}}</a></span>
@@ -475,6 +475,51 @@
                             <br>
                             Votes {{worker_votes | number:0}}
                         </uib-tab>
+
+                        <uib-tab ng-if="is_activenode == true" heading="Activenode" index="11" class="text-small">
+                            <br>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading"> Activenode Information</div>
+                                            <div class="panel-body">
+                                                <ul class="list-group">
+                                                    <li class="list-group-item">
+                                                        <span class="badge" style="background-color: #FFFFFF; color: #000000">{{activities_sent}}</span>
+                                                        Activities sent today
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="badge" style="background-color: #FFFFFF; color: #000000">{{activenode_id}}</span>
+                                                        Activenode id
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="badge" style="background-color: #FFFFFF; color: #000000">{{is_new}}</span>
+                                                        Is new?
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="badge" style="background-color: #FFFFFF; color: #000000">{{last_activity}}</span>
+                                                        Last activity
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="badge" style="background-color: #FFFFFF; color: #000000">{{penalty_left}}</span>
+                                                        Days of penalty left
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <span class="badge" style="background-color: #FFFFFF; color: #000000">{{max_penalty}}</span>
+                                                        Days of penalty got
+                                                    </li>                                                    
+                                                    <li class="list-group-item">
+                                                            <span class="badge" style="background-color: #FFFFFF; color: #000000">{{missed_activities}}</span>
+                                                            % of missed activities
+                                                        </li>                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </uib-tab>                        
 
                     </uib-tabset>
                 </div></div>

@@ -145,6 +145,19 @@
                         $scope.proxy_votes = returnData[1];
                     });
 
+                    accountService.checkIfActivenode(account_id, function (returnData) {
+                        $scope.is_activenode = returnData[0];
+                        $scope.activenode_account = returnData[1];
+                        $scope.activenode_account_name = returnData[2];
+                        $scope.activities_sent = returnData[3];
+                        $scope.activenode_id = returnData[4];                        
+                        $scope.is_new = returnData[5];    
+                        $scope.last_activity = returnData[6];    
+                        $scope.max_penalty = returnData[7];    
+                        $scope.penalty_left = returnData[8];    
+                        $scope.missed_activities = returnData[9];    
+                    });                    
+
                     accountService.parseProposals(fullAccount.proposals, function (returnData) {
                         $scope.proposals = returnData;
                     });
@@ -178,6 +191,15 @@
                     };
                     $scope.select(1);
 
+                    $scope.select = function(page_operations) {
+                        var page = page_operations -1;
+
+                        accountService.getAccountHistory(name, page, function (returnData) {
+                            $scope.operations = returnData;
+                            $scope.currentPage = page_operations;
+                        });
+                    };
+                    $scope.select(1);        
 
                     utilities.columnsort($scope, "balance", "sortColumn", "sortClass", "reverse", "reverseclass", "column");
 

@@ -86,6 +86,30 @@
                     }
                 });
             },
+            checkIfActivenode: function(account_id, callback) {
+                var results = [];
+                var is_activenode = false;
+                $http.get(appConfig.urls.python_backend + "/get_activenodes").then(function (response) {
+                    for (var i = 0; i < response.data.length; i++) {
+                        var activenode_account = response.data[i][0].activenode_account;
+                        if (activenode_account === account_id) {
+                            is_activenode = true;
+                            results[0] = is_activenode;
+                            results[1] = activenode_account;
+                            results[2] = response.data[i][0].activenode_account_name;
+                            results[3] = response.data[i][0].activities_sent;
+                            results[4] = response.data[i][0].id;
+                            results[5] = response.data[i][0].is_new;
+                            results[6] = response.data[i][0].last_activity;
+                            results[7] = response.data[i][0].max_penalty;
+                            results[8] = response.data[i][0].penalty_left;
+                            results[9] = response.data[i][0].activities_aprrox_missed_activities;
+                            callback(results);
+                            break;
+                        }
+                    }
+                });
+            },            
             checkIfProxy: function(account_id, callback) {
                 var results = [];
                 var is_proxy = false;
@@ -314,7 +338,20 @@
                     });
                     callback(results);
                 });
-            }
+            },
+            getActivenodes: function(callback) {
+                var activenodes = [];
+                $http.get(appConfig.urls.python_backend + "/fees").then(function(response) {
+                    
+                    for(var i = 0; i < response.data.current_activenodes.length; i++){
+                        var activenode = {
+                            id: response.data.current_activenodes[i]
+                        };
+                        activenodes.push(activenode);
+                    };
+                });
+                callback(activenodes);
+            }       
         };
     }
 
