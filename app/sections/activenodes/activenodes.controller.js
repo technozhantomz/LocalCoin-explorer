@@ -8,7 +8,7 @@
         
         governanceService.getActivenodes(function (returnData) {
             $scope.active_activenodes = returnData[0];
-            //$scope.standby_witnesses = returnData[1];
+            $scope.standby_activenodes = returnData[1];
         });
 
         utilities.columnsort($scope, "total_votes", "sortColumn", "sortClass", "reverse", "reverseclass", "column");

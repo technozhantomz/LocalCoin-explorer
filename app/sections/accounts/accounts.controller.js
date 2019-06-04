@@ -156,6 +156,8 @@
                         $scope.max_penalty = returnData[7];    
                         $scope.penalty_left = returnData[8];    
                         $scope.missed_activities = returnData[9];    
+                        $scope.pay_vb = returnData[10];    
+                        $scope.endpoint = returnData[11];  
                     });                    
 
                     accountService.parseProposals(fullAccount.proposals, function (returnData) {

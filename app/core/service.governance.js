@@ -81,43 +81,62 @@
             },
             getActivenodes: function(callback) {
                 var active_activenodes = [];
-                //var standby_activenodes = [];
+                var standby_activenodes = [];
                 var activenodes = [];
 
                 //networkService.getHeader(function (returnData) {
                     //var witness_count = returnData.witness_count;
 
-                    $http.get(appConfig.urls.python_backend + "/get_activenodes").then(function(response) {
-                        var counter = 1;
-                        angular.forEach(response.data, function(value, key) {
-                            var parsed = {
-                                id: value[0].id,
-                                activenode_account: value[0].activenode_account,
-                                activenode_account_name: value[0].activenode_account_name,
-                                activities_approx_count: value[0].activities_approx_count,
-                                missed_activities: value[0].activities_aprrox_missed_activities,
-                                activities_sent: value[0].activities_sent,
-                                endpoint: value[0].endpoint,
-                                is_new: value[0].is_new,
-                                last_activity: value[0].last_activity,
-                                max_penalty: value[0].max_penalty,
-                                pay_vb: value[0].pay_vb,
-                                penalty_left: value[0].penalty_left,
-                                counter: counter
-                            };
-
-                            //if(counter <= witness_count) {
-                            //    active_witnesses.push(parsed);
-                            //}
-                            //else {
-                            //    standby_witnesses.push(parsed);
-                            //}
-                            active_activenodes.push(parsed);
+                    $http.get(appConfig.urls.python_backend + "/get_all_activenodes").then(function(response) {
+                        var counter = 1, standby;
+                        angular.forEach(response.data, function(value) {
+                            if (value.is_new === true || value.penalty_left !== 0) {
+                                var parsed = {
+                                    id: value.id,
+                                    activenode_account: value.activenode_account,
+                                    activenode_account_name: value.activenode_account_name,
+                                    activities_approx_count: value.activities_approx_count,
+                                    missed_activities: value.activities_aprrox_missed_activities,
+                                    activities_sent: value.activities_sent,
+                                    endpoint: value.endpoint,
+                                    is_new: value.is_new,
+                                    last_activity: value.last_activity,
+                                    max_penalty: value.max_penalty,
+                                    pay_vb: value.pay_vb,
+                                    penalty_left: value.penalty_left,
+                                    counter: counter,
+                                    standby: true
+                                };
+                            } else {
+                                var parsed = {
+                                    id: value.id,
+                                    activenode_account: value.activenode_account,
+                                    activenode_account_name: value.activenode_account_name,
+                                    activities_approx_count: value.activities_approx_count,
+                                    missed_activities: value.activities_aprrox_missed_activities,
+                                    activities_sent: value.activities_sent,
+                                    endpoint: value.endpoint,
+                                    is_new: value.is_new,
+                                    last_activity: value.last_activity,
+                                    max_penalty: value.max_penalty,
+                                    pay_vb: value.pay_vb,
+                                    penalty_left: value.penalty_left,
+                                    counter: counter,
+                                    standby: false
+                                };
+                            }
+                            
+                            if(parsed.standby === false) {
+                                active_activenodes.push(parsed);
+                            }
+                            else {
+                                standby_activenodes.push(parsed);
+                            }
                             counter++;
                         });
                     });
                     activenodes[0] = active_activenodes;
-                    //witnesses[1] = standby_witnesses;
+                    activenodes[1] = standby_activenodes;
                     callback(activenodes);
                 //});
             },            

@@ -89,21 +89,24 @@
             checkIfActivenode: function(account_id, callback) {
                 var results = [];
                 var is_activenode = false;
-                $http.get(appConfig.urls.python_backend + "/get_activenodes").then(function (response) {
+                $http.get(appConfig.urls.python_backend + "/get_all_activenodes").then(function (response) {
+                    //console.log( response.data[2] );
                     for (var i = 0; i < response.data.length; i++) {
-                        var activenode_account = response.data[i][0].activenode_account;
+                        var activenode_account = response.data[i].activenode_account;
                         if (activenode_account === account_id) {
                             is_activenode = true;
                             results[0] = is_activenode;
                             results[1] = activenode_account;
-                            results[2] = response.data[i][0].activenode_account_name;
-                            results[3] = response.data[i][0].activities_sent;
-                            results[4] = response.data[i][0].id;
-                            results[5] = response.data[i][0].is_new;
-                            results[6] = response.data[i][0].last_activity;
-                            results[7] = response.data[i][0].max_penalty;
-                            results[8] = response.data[i][0].penalty_left;
-                            results[9] = response.data[i][0].activities_aprrox_missed_activities;
+                            results[2] = response.data[i].activenode_account_name;
+                            results[3] = response.data[i].activities_sent;
+                            results[4] = response.data[i].id;
+                            results[5] = response.data[i].is_new;
+                            results[6] = response.data[i].last_activity;
+                            results[7] = response.data[i].max_penalty;
+                            results[8] = response.data[i].penalty_left;
+                            results[9] = response.data[i].activities_aprrox_missed_activities;
+                            results[10] = response.data[i].pay_vb;
+                            results[11] = response.data[i].endpoint;
                             callback(results);
                             break;
                         }
