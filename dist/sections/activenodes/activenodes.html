@@ -31,6 +31,8 @@
                         <th ng-click='sortColumn("activenode_account")' ng-class='sortClass("activenode_account")'>Account</th>
 						<th ng-click='sortColumn("missed_activities")' ng-class='sortClass("missed_activities")' class="align-right">% of missed activities</th>
                         <th class="align-right" ng-click='sortColumn("activities_sent")' ng-class='sortClass("activities_sent")'>Total activities</th>
+                        <th class="align-right" ng-click='sortColumn("max_penalty")' ng-class='sortClass("max_penalty")'>Max penalty</th>
+                        <th class="align-right">Today Mined LLC</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,6 +42,8 @@
                     <td><a href="#/accounts/{{a.activenode_account}}/">{{a.activenode_account_name}}</a></td>
 					<td class="align-right">{{a.missed_activities | number}} %</td>
                     <td class="align-right">{{a.activities_sent | number}}</td>
+                    <td class="align-right">{{a.max_penalty | number}} days</td>
+                    <td class="align-right">{{a.today_mined | number}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -66,6 +70,8 @@
                     <th ng-click='sortColumn2("id")' ng-class='sortClass2("id")'>ID</th>
                     <th ng-click='sortColumn2("activenode_account")' ng-class='sortClass2("activenode_account")'>Account</th>
                     <th>Penalty left</th>
+                    <th>Max penalty</th>
+                    <th>New activenode?</th>
                 </tr>                    
                 </thead>
                 <tbody>
@@ -74,6 +80,8 @@
                         <td><a href="#/objects/{{a.id}}/">{{a.id}}</a></td>
                         <td><a href="#/accounts/{{a.activenode_account}}/">{{a.activenode_account_name}}</a></td>
                         <td>{{a.penalty_left}} days</td>
+                        <td>{{a.max_penalty | number}} days</td>
+                        <td>{{a.is_new}}</td>
                     </tr>
                     </tbody>
             </table>
