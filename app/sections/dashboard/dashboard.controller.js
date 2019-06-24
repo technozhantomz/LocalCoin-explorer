@@ -17,7 +17,7 @@
         
         $scope.select = function(page_operations) {
             var page = page_operations -1;
-            var limit = 20;
+            var limit = 500;
             var from = page * limit;
 
             networkService.getLastOperations(limit, from, function (returnData) {

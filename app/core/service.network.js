@@ -51,23 +51,31 @@
                     angular.forEach(response.data, function (value, key) {
 
                         var operation = {};
-                        operation.block_num = value.block_data.block_num;
-                        operation.operation_id = value.account_history.operation_id;
-                        operation.time = value.block_data.block_time;
+                        //console.log( value.operation_type );
 
-                        var parsed_op = JSON.parse(value.operation_history.op);
-                        //var parsed_op = value.operation_history.op_object;
+                        if( value.operation_type !== 48 && value.operation_type !== 19 ) {//filter for send activity and publish feeds
 
-                        //utilities.opText(appConfig, $http, value.operation_type, parsed_op, function(returnData) {
-                            utilities.opText(appConfig, $http, value.operation_type, parsed_op[1], function(returnData) {
-                            operation.operation_text = returnData;
-                        });
+                            operation.block_num = value.block_data.block_num;
+                            operation.operation_id = value.account_history.operation_id;
+                            operation.time = value.block_data.block_time;
 
-                        var type_res =  utilities.operationType(value.operation_type);
-                        operation.type = type_res[0];
-                        operation.color = type_res[1];
+                            var parsed_op = JSON.parse(value.operation_history.op);
+                            //var parsed_op = value.operation_history.op_object;
 
-                        lastops.push(operation);
+                            //utilities.opText(appConfig, $http, value.operation_type, parsed_op, function(returnData) {
+                                utilities.opText(appConfig, $http, value.operation_type, parsed_op[1], function(returnData) {
+                                operation.operation_text = returnData;
+                            });
+
+                            var type_res =  utilities.operationType(value.operation_type);
+                            operation.type = type_res[0];
+                            operation.color = type_res[1];
+
+                            lastops.push(operation);
+
+                        }
+
+                        //console.log( operation );
 
                     });
                     callback(lastops);
