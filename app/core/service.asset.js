@@ -10,7 +10,7 @@
             getActiveAssets: function(callback) {
                 var assets = [];
 
-                $http.get(appConfig.urls.python_backend + "/assets").then(function (response) {
+                $http.get(appConfig.urls.python_backend + "/assets_llc").then(function (response) {
 
                     angular.forEach(response.data, function (value, key) {
 
