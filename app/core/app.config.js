@@ -47,7 +47,7 @@
         };
 
         var urls = {
-            websocket: "wss://moscow.localcoin.is",
+            websocket: "wss://node.commodity.llc/api",
             python_backend: "https://api.llc.is",
             elasticsearch_wrapper: "https://api.llc.is",
             udf_wrapper: "https://api.llc.is"
